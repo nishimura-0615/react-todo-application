@@ -38,6 +38,14 @@ export const TodoTemplate = () => {
     }
   };
 
+  const handleDeleteTodo = (targetId, targetTitle) => {
+    if (window.confirm(`「${targetTitle}」のtodoを削除しますか？`)) {
+      const newTodoList = originTodoList.filter((todo) => todo.id !== targetId);
+
+      setOriginTodoList(newTodoList);
+    }
+  };
+
   const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
 
   return (
@@ -60,8 +68,11 @@ export const TodoTemplate = () => {
         />
       </section>
       <section className={styles.common}>
-        {originTodoList.length > 0 && (
-         <TodoList todoList={showTodoList} />
+        {showTodoList.length > 0 && (
+          <TodoList
+            todoList={showTodoList}
+            handleDeleteTodo={handleDeleteTodo}
+          />
         )}
       </section>
     </div>
