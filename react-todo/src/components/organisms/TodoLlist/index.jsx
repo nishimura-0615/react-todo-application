@@ -1,9 +1,10 @@
-import styles from "./style.module.css";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import styles from './style.module.css';
 
 export const TodoList = (props) => {
-  const { todoList,handleDeleteTodo } = props;
+  const { todoList, handleDeleteTodo } = props;
 
   return (
     <ul className={styles.list}>

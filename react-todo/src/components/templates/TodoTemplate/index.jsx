@@ -1,19 +1,20 @@
-import { useState,useMemo } from "react";
-import { InputForm } from "../../atoms/InputForm";
-import { TodoList } from "../../organisms/TodoLlist";
-import { AddTodo } from "../../organisms/AddTodo";
-import { INIT_TODO_LIST,INIT_UNIQUE_ID } from "../../../constants/data";
-import styles from "./styles.module.css";
+import { useState, useMemo } from 'react';
+
+import styles from './styles.module.css';
+import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../../../constants/data';
+import { InputForm } from '../../atoms/InputForm/InputForm';
+import { AddTodo } from '../../organisms/AddTodo';
+import { TodoList } from '../../organisms/TodoLlist';
 
 export const TodoTemplate = () => {
   const [originTodoList, setOriginTodoList] = useState(INIT_TODO_LIST);
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [addInputValue, setAddInputValue] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [addInputValue, setAddInputValue] = useState('');
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
 
   const showTodoList = useMemo(() => {
     return originTodoList.filter((todo) => {
-      const regexp = new RegExp("^" + searchKeyword, "i");
+      const regexp = new RegExp('^' + searchKeyword, 'i');
       return todo.title.match(regexp);
     });
   }, [originTodoList, searchKeyword]);
@@ -21,7 +22,7 @@ export const TodoTemplate = () => {
   const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
 
   const handleAddTodo = (e) => {
-    if (e.key === "Enter" && addInputValue !== "") {
+    if (e.key === 'Enter' && addInputValue !== '') {
       const nextUniqueId = uniqueId + 1;
       const newTodoList = [
         ...originTodoList,
@@ -34,7 +35,7 @@ export const TodoTemplate = () => {
 
       setUniqueId(nextUniqueId);
 
-      setAddInputValue("");
+      setAddInputValue('');
     }
   };
 
@@ -63,7 +64,7 @@ export const TodoTemplate = () => {
       <section className={styles.common}>
         <InputForm
           inputValue={searchKeyword}
-          placeholder={"Search Keyword"}
+          placeholder={'Search Keyword'}
           handleChangeValue={handleChangeSearchKeyword}
         />
       </section>

@@ -1,7 +1,6 @@
-import styles from "./style.module.css";
+import styles from './style.module.css';
 
 export const InputForm = (props) => {
-  /* props */
   const { inputValue, placeholder, handleChangeValue, handleKeyDown } = props;
 
   return (
