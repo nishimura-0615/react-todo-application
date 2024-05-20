@@ -1,5 +1,5 @@
 
-import { InputForm } from "../../atoms/InputForm/InputForm";
+import { InputForm } from "../../atoms/InputForm";
 import styles from "./style.module.css";
 
 export const AddTodo = (props) => {

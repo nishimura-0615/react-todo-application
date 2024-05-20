@@ -1,7 +1,7 @@
 import { useState,useMemo } from "react";
-import { InputForm } from "../../atoms/InputForm/InputForm";
-import { TodoList } from "../../organisms/TodoLlist/TodoList";
-import { AddTodo } from "../../organisms/AddTodo/AddTodo";
+import { InputForm } from "../../atoms/InputForm";
+import { TodoList } from "../../organisms/TodoLlist";
+import { AddTodo } from "../../organisms/AddTodo";
 import { INIT_TODO_LIST,INIT_UNIQUE_ID } from "../../../constants/data";
 import styles from "./styles.module.css";
 

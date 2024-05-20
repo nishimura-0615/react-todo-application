@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { TodoTemplate } from "./components/templates/TodoTemplate/TodoTemplate"
+import { TodoTemplate } from "./components/templates/TodoTemplate"
 import "./index.css";
 
 const rootElement = document.getElementById("root");
