@@ -78,5 +78,3 @@ export const TodoTemplate = () => {
     </div>
   );
 };
-
-export default TodoTemplate;
