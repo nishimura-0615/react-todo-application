@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
 
 export const TodoList = (props) => {
-  const { todoList} = props;
+  const { todoList } = props;
 
   return (
     <ul className={styles.list}>
