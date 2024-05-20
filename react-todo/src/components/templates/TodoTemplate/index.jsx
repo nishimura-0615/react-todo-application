@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-
 import styles from './styles.module.css';
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../../../constants/data';
 import { InputForm } from '../../atoms/InputForm/InputForm';
@@ -42,7 +41,6 @@ export const TodoTemplate = () => {
   const handleDeleteTodo = (targetId, targetTitle) => {
     if (window.confirm(`「${targetTitle}」のtodoを削除しますか？`)) {
       const newTodoList = originTodoList.filter((todo) => todo.id !== targetId);
-
       setOriginTodoList(newTodoList);
     }
   };
