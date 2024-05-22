@@ -8,8 +8,8 @@ export const TodoTemplate = () => {
   const {
     addInputValue,
     handleAddTodo,
-    handleDeleteTodo,
     handleChangeSearchKeyword,
+    handleDeleteTodo,
     showTodoList,
     onChangeAddInputValue,
     searchKeyword,
