@@ -1,7 +1,9 @@
-import { useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../constants/data';
 
-export const useTodos = () => {
+const TodosContext = createContext();
+
+export const TodosProvider = ({ children }) => {
   const [originTodoList, setOriginTodoList] = useState(INIT_TODO_LIST);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [addInputValue, setAddInputValue] = useState('');
@@ -27,9 +29,7 @@ export const useTodos = () => {
         },
       ];
       setOriginTodoList(newTodoList);
-
       setUniqueId(nextUniqueId);
-
       setAddInputValue('');
     }
   };
@@ -42,12 +42,23 @@ export const useTodos = () => {
   };
 
   const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
-  return {
-    handleAddTodo,
-    handleChangeSearchKeyword,
-    handleDeleteTodo,
-    onChangeAddInputValue,
-    setAddInputValue,
-    showTodoList,
-  };
+
+  return (
+    <TodosContext.Provider
+      value={{
+        addInputValue,
+        handleAddTodo,
+        handleChangeSearchKeyword,
+        handleDeleteTodo,
+        onChangeAddInputValue,
+        searchKeyword,
+        showTodoList,
+      }}
+    >
+      {children}
+    </TodosContext.Provider>
+  );
 };
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTodos = () => useContext(TodosContext);
