@@ -1,5 +1,5 @@
 import styles from './styles.module.css';
-import { useTodos } from '../../../hooks/useTodos';
+import { useTodosContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { AddTodo } from '../../organisms/AddTodo';
 import { TodoList } from '../../organisms/TodoLlist';
@@ -10,10 +10,10 @@ export const TodoTemplate = () => {
     handleAddTodo,
     handleChangeSearchKeyword,
     handleDeleteTodo,
-    showTodoList,
     onChangeAddInputValue,
     searchKeyword,
-  } = useTodos();
+    showTodoList,
+  } = useTodosContext();
 
   return (
     <div className={styles.container}>

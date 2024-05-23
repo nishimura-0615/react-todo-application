@@ -43,11 +43,14 @@ export const useTodos = () => {
 
   const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
   return {
+    addInputValue,
     handleAddTodo,
     handleChangeSearchKeyword,
     handleDeleteTodo,
     onChangeAddInputValue,
+    searchKeyword,
     setAddInputValue,
     showTodoList,
   };
 };
+export default useTodos;
