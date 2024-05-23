@@ -29,6 +29,7 @@ module.exports = {
     ],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'sort-keys': ['error', 'asc', { caseSensitive: true, natural: false }],
   },
   settings: {
     react: {

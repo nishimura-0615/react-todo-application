@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../constants/data';
 
 export const useTodos = () => {
@@ -43,11 +43,14 @@ export const useTodos = () => {
 
   const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
   return {
+    addInputValue,
     handleAddTodo,
-    handleDeleteTodo,
     handleChangeSearchKeyword,
+    handleDeleteTodo,
     onChangeAddInputValue,
+    searchKeyword,
     setAddInputValue,
     showTodoList,
   };
 };
+export default useTodos;
