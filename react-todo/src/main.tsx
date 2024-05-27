@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TodoTemplate } from './components/templates/TodoTemplate';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 import { TodosProvider } from './contexts/TodoContext';
 import './index.css';
 
@@ -9,7 +10,7 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <TodosProvider>
-        <TodoTemplate />
+        <RouterProvider router={router} />
       </TodosProvider>
     </React.StrictMode>,
   );
