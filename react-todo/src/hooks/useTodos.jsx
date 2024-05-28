@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../constants/data';
 
 export const useTodos = () => {
@@ -8,31 +8,36 @@ export const useTodos = () => {
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
 
   const showTodoList = useMemo(() => {
+    const regexp = new RegExp('^' + searchKeyword, 'i');
     return originTodoList.filter((todo) => {
-      const regexp = new RegExp('^' + searchKeyword, 'i');
       return todo.title.match(regexp);
     });
   }, [originTodoList, searchKeyword]);
 
+  const handleChangeSearchKeyword = useCallback(
+    (e) => setSearchKeyword(e.target.value),
+    [],
+  );
   const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
 
-  const handleAddTodo = (e) => {
-    if (e.key === 'Enter' && addInputValue !== '') {
+  const addTodo = useCallback(
+    (title, content) => {
       const nextUniqueId = uniqueId + 1;
-      const newTodoList = [
+      const newTodo = [
         ...originTodoList,
         {
           id: nextUniqueId,
-          title: addInputValue,
+          title: title,
+          content: content,
         },
       ];
-      setOriginTodoList(newTodoList);
+
+      setOriginTodoList(newTodo);
 
       setUniqueId(nextUniqueId);
-
-      setAddInputValue('');
-    }
-  };
+    },
+    [originTodoList, uniqueId],
+  );
 
   const handleDeleteTodo = (targetId, targetTitle) => {
     if (window.confirm(`「${targetTitle}」のtodoを削除しますか？`)) {
@@ -41,16 +46,35 @@ export const useTodos = () => {
     }
   };
 
-  const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
+  const updateTodo = useCallback(
+    (id, title, content) => {
+      const updatedTodoList = originTodoList.map((todo) => {
+        if (id === todo.id) {
+          return {
+            id: todo.id,
+            title: title,
+            content: content,
+          };
+        }
+
+        return todo;
+      });
+      setOriginTodoList(updatedTodoList);
+    },
+    [originTodoList],
+  );
+
   return {
+    addTodo,
     addInputValue,
-    handleAddTodo,
     handleChangeSearchKeyword,
     handleDeleteTodo,
     onChangeAddInputValue,
     searchKeyword,
-    setAddInputValue,
     showTodoList,
+    originTodoList,
+    updateTodo,
   };
 };
+
 export default useTodos;
