@@ -12,7 +12,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
 
-  plugins: ['react-refresh', 'react', 'import'],
+  plugins: ['react-refresh', 'react', 'import', 'sort-keys-fix'],
   rules: {
     'import/order': [
       'error',
@@ -22,14 +22,34 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { trailingComma: 'none' }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'sort-keys': ['error', 'asc', { caseSensitive: true, natural: false }],
+    'sort-keys-fix/sort-keys-fix': [
+      'error',
+      'asc',
+      {
+        allowLineSeparatedGroups: true,
+        caseSensitive: true,
+        natural: false,
+        minKeys: 2,
+      },
+    ],
+    'sort-keys': [
+      'error',
+      { object: 'never' },
+      {
+        caseSensitive: true,
+        natural: false,
+        minKeys: 4,
+        allowLineSeparatedGroups: true,
+        allowPattern: '^(path|element)$',
+      },
+    ],
   },
   settings: {
     react: {
