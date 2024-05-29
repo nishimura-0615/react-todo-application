@@ -6,8 +6,11 @@ const TodosContext = createContext();
 export const TodosProvider = ({ children }) => {
   const {
     addTodo,
+    addInputValue,
     handleChangeSearchKeyword,
     handleDeleteTodo,
+    inputTitle,
+    inputContent,
     onChangeAddInputValue,
     originTodoList,
     searchKeyword,
@@ -19,8 +22,11 @@ export const TodosProvider = ({ children }) => {
     <TodosContext.Provider
       value={{
         addTodo,
+        addInputValue,
         handleChangeSearchKeyword,
         handleDeleteTodo,
+        inputTitle,
+        inputContent,
         onChangeAddInputValue,
         originTodoList,
         searchKeyword,

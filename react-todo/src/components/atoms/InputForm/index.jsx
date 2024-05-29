@@ -1,16 +1,17 @@
 import styles from './style.module.css';
 
 export const InputForm = (props) => {
-  const { inputValue, placeholder, handleChangeValue, handleKeyDown } = props;
+  const { disabled = false, value, placeholder, onChange, onKeyDown } = props;
 
   return (
     <input
+      disabled={disabled}
       className={styles.input}
       type="text"
       placeholder={placeholder}
-      value={inputValue}
-      onChange={handleChangeValue}
-      onKeyDown={handleKeyDown}
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 };

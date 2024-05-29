@@ -28,30 +28,30 @@ const useTodoCreateTemplate = ({ addTodo }) => {
     (e) => {
       e.preventDefault();
       if (inputTitle !== '' && inputContent !== '') {
-        handleAddTodo(inputTitle, inputContent);
+        addTodo(inputTitle, inputContent);
         navigate(NAVIGATION_PATH.TOP);
       }
     },
-    [addTodo, inputTitle, inputContent, navigate],
+    [addTodo, inputContent, inputTitle, navigate],
   );
 
   return {
-    inputTitle,
-    inputContent,
     handleChangeTitle,
     handleChangeContent,
     handleCreateTodo,
+    inputContent,
+    inputTitle,
   };
 };
 
 export const TodoCreateTemplate = () => {
   const { addTodo } = useTodosContext();
   const {
-    inputContent,
-    inputTitle,
     handleChangeContent,
     handleChangeTitle,
     handleCreateTodo,
+    inputContent,
+    inputTitle,
   } = useTodoCreateTemplate({ addTodo });
 
   return (
@@ -59,14 +59,14 @@ export const TodoCreateTemplate = () => {
       <form className={styles.container} onSubmit={handleCreateTodo}>
         <div className={styles.area}>
           <InputForm
-            value={inputTitle}
+            inputvalue={inputTitle}
             placeholder={'Title'}
             onChange={handleChangeTitle}
           />
         </div>
         <div className={styles.area}>
           <TextArea
-            value={inputContent}
+            inputvalue={inputContent}
             placeholder={'Content'}
             onChange={handleChangeContent}
           />

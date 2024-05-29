@@ -18,6 +18,7 @@ export const useTodos = () => {
     (e) => setSearchKeyword(e.target.value),
     [],
   );
+
   const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
 
   const addTodo = useCallback(
@@ -31,9 +32,7 @@ export const useTodos = () => {
           content: content,
         },
       ];
-
       setOriginTodoList(newTodo);
-
       setUniqueId(nextUniqueId);
     },
     [originTodoList, uniqueId],
@@ -56,7 +55,6 @@ export const useTodos = () => {
             content: content,
           };
         }
-
         return todo;
       });
       setOriginTodoList(updatedTodoList);

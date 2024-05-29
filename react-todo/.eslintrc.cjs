@@ -36,7 +36,7 @@ module.exports = {
         allowLineSeparatedGroups: true,
         caseSensitive: true,
         natural: false,
-        minKeys: 2,
+        minKeys: 4,
       },
     ],
     'sort-keys': [
