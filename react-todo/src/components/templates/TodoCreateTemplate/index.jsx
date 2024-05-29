@@ -59,14 +59,14 @@ export const TodoCreateTemplate = () => {
       <form className={styles.container} onSubmit={handleCreateTodo}>
         <div className={styles.area}>
           <InputForm
-            inputvalue={inputTitle}
+            value={inputTitle}
             placeholder={'Title'}
             onChange={handleChangeTitle}
           />
         </div>
         <div className={styles.area}>
           <TextArea
-            inputvalue={inputContent}
+            value={inputContent}
             placeholder={'Content'}
             onChange={handleChangeContent}
           />
