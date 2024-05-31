@@ -1,32 +1,12 @@
+import React from 'react';
+import styles from './styles.module.css';
 import {
   faFile,
   faPenToSquare,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from './styles.module.css';
-import { NAVIGATION_PATH } from '../../../constants/navigation';
-
-const useTodoList = () => {
-  const navigate = useNavigate();
-
-  const handleMoveDetailPage = useCallback(
-    (id) => navigate(`${NAVIGATION_PATH.DETAIL(id)}`),
-    [navigate],
-  );
-
-  const handleMoveEditPage = useCallback(
-    (id) => navigate(`${NAVIGATION_PATH.EDIT(id)}`),
-    [navigate],
-  );
-
-  return {
-    handleMoveDetailPage,
-    handleMoveEditPage,
-  };
-};
+import { useTodoList } from './useTodoList';
 
 export const TodoList = ({ todoList, handleDeleteTodo }) => {
   const { handleMoveDetailPage, handleMoveEditPage } = useTodoList();
