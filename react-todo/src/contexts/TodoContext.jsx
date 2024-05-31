@@ -21,12 +21,12 @@ export const TodosProvider = ({ children }) => {
   return (
     <TodosContext.Provider
       value={{
-        addTodo,
         addInputValue,
+        addTodo,
         handleChangeSearchKeyword,
         handleDeleteTodo,
-        inputTitle,
         inputContent,
+        inputTitle,
         onChangeAddInputValue,
         originTodoList,
         searchKeyword,

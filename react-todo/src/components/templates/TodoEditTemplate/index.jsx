@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import styles from './styles.module.css';
 import { useTodosContext } from '../../../contexts/TodoContext';
-import { BaseLayout } from '../../organisms/BaseLayout';
+import { CommonButton } from '../../atoms/CommonButton';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import { CommonButton } from '../../atoms/CommonButton';
-import styles from './styles.module.css';
+import { BaseLayout } from '../../organisms/BaseLayout';
 
 const useTodoEditTemplate = ({ originTodoList, updateTodo }) => {
   const navigate = useNavigate();
@@ -47,12 +47,12 @@ const useTodoEditTemplate = ({ originTodoList, updateTodo }) => {
   );
 
   return {
-    todo,
-    inputTitle,
-    inputContent,
-    handleChangeTitle,
     handleChangeContent,
+    handleChangeTitle,
     handleUpdateTodo,
+    inputContent,
+    inputTitle,
+    todo,
   };
 };
 

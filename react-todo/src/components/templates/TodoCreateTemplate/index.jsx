@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './styles.module.css';
+import { NAVIGATION_PATH } from '../../../constants/navigation';
 import { useTodosContext } from '../../../contexts/TodoContext';
-import { BaseLayout } from '../../organisms/BaseLayout';
+import { CommonButton } from '../../atoms/CommonButton';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import { CommonButton } from '../../atoms/CommonButton';
-import { NAVIGATION_PATH } from '../../../constants/navigation';
-import styles from './styles.module.css';
+import { BaseLayout } from '../../organisms/BaseLayout';
 
 const useTodoCreateTemplate = ({ addTodo }) => {
   const navigate = useNavigate();
@@ -36,8 +36,8 @@ const useTodoCreateTemplate = ({ addTodo }) => {
   );
 
   return {
-    handleChangeTitle,
     handleChangeContent,
+    handleChangeTitle,
     handleCreateTodo,
     inputContent,
     inputTitle,

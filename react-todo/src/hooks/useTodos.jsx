@@ -44,7 +44,6 @@ export const useTodos = () => {
       setOriginTodoList(newTodoList);
     }
   };
-
   const updateTodo = useCallback(
     (id, title, content) => {
       const updatedTodoList = originTodoList.map((todo) => {
@@ -63,14 +62,14 @@ export const useTodos = () => {
   );
 
   return {
-    addTodo,
     addInputValue,
+    addTodo,
     handleChangeSearchKeyword,
     handleDeleteTodo,
     onChangeAddInputValue,
+    originTodoList,
     searchKeyword,
     showTodoList,
-    originTodoList,
     updateTodo,
   };
 };

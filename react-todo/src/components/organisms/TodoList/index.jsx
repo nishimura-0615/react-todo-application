@@ -1,13 +1,13 @@
-import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   faFile,
   faPenToSquare,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NAVIGATION_PATH } from '../../../constants/navigation';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
+import { NAVIGATION_PATH } from '../../../constants/navigation';
 
 const useTodoList = () => {
   const navigate = useNavigate();
