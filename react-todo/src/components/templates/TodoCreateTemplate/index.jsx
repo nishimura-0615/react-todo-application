@@ -1,48 +1,11 @@
-import React, { useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import styles from './styles.module.css';
-import { NAVIGATION_PATH } from '../../../constants/navigation';
+import { useTodoCreateTemplate } from './useTodoCreateTemplate';
 import { useTodosContext } from '../../../contexts/TodoContext';
 import { CommonButton } from '../../atoms/CommonButton';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
 import { BaseLayout } from '../../organisms/BaseLayout';
-
-const useTodoCreateTemplate = ({ addTodo }) => {
-  const navigate = useNavigate();
-
-  const [inputTitle, setInputTitle] = useState('');
-  const [inputContent, setInputContent] = useState('');
-
-  const handleChangeTitle = useCallback(
-    (e) => setInputTitle(e.target.value),
-    [],
-  );
-
-  const handleChangeContent = useCallback(
-    (e) => setInputContent(e.target.value),
-    [],
-  );
-
-  const handleCreateTodo = useCallback(
-    (e) => {
-      e.preventDefault();
-      if (inputTitle !== '' && inputContent !== '') {
-        addTodo(inputTitle, inputContent);
-        navigate(NAVIGATION_PATH.TOP);
-      }
-    },
-    [addTodo, inputContent, inputTitle, navigate],
-  );
-
-  return {
-    handleChangeContent,
-    handleChangeTitle,
-    handleCreateTodo,
-    inputContent,
-    inputTitle,
-  };
-};
 
 export const TodoCreateTemplate = () => {
   const { addTodo } = useTodosContext();
