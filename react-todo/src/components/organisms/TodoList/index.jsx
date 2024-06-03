@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from './styles.module.css';
 import {
   faFile,
   faPenToSquare,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import styles from './styles.module.css';
 import { useTodoList } from './useTodoList';
 
 export const TodoList = ({ todoList, handleDeleteTodo }) => {

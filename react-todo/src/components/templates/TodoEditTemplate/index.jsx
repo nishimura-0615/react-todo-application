@@ -60,13 +60,16 @@ export const TodoEditTemplate = () => {
   const { originTodoList, updateTodo } = useTodosContext();
 
   const {
-    todo,
-    inputTitle,
-    inputContent,
     handleChangeTitle,
     handleChangeContent,
     handleUpdateTodo,
-  } = useTodoEditTemplate({ originTodoList, updateTodo });
+    inputContent,
+    inputTitle,
+    todo,
+  } = useTodoEditTemplate({
+    originTodoList,
+    updateTodo,
+  });
 
   return (
     <BaseLayout title={'TodoEdit'}>

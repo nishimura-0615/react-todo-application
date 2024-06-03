@@ -1,15 +1,15 @@
 export const BASE_PATH = '';
 
 export const NAVIGATION_LIST = {
-  TOP: '/',
+  CREATE: '/create',
   DETAIL: '/detail/:id',
   EDIT: '/edit/:id',
-  CREATE: '/create',
+  TOP: '/',
 };
 
 export const NAVIGATION_PATH = {
-  TOP: '/',
+  CREATE: '/create',
   DETAIL: (id) => `/detail/${id}`,
   EDIT: (id) => `/edit/${id}`,
-  CREATE: '/create',
+  TOP: '/',
 };

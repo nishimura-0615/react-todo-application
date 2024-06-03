@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
+import styles from './styles.module.css';
 import { useTodosContext } from '../../../contexts/TodoContext';
-import { BaseLayout } from '../../organisms/BaseLayout';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import styles from './styles.module.css';
+import { BaseLayout } from '../../organisms/BaseLayout';
 
 export const TodoDetailTemplate = () => {
   const { originTodoList } = useTodosContext();

@@ -1,9 +1,9 @@
 import React from 'react';
-import { BaseLayout } from '../../organisms/BaseLayout';
-import { InputForm } from '../../atoms/InputForm';
-import { TodoList } from '../../organisms/TodoList';
-import { useTodosContext } from '../../../contexts/TodoContext';
 import styles from './styles.module.css';
+import { useTodosContext } from '../../../contexts/TodoContext';
+import { InputForm } from '../../atoms/InputForm';
+import { BaseLayout } from '../../organisms/BaseLayout';
+import { TodoList } from '../../organisms/TodoList';
 
 export const TodoTemplate = () => {
   const {
