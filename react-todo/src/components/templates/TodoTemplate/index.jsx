@@ -1,47 +1,37 @@
+import React from 'react';
 import styles from './styles.module.css';
 import { useTodosContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
-import { AddTodo } from '../../organisms/AddTodo';
-import { TodoList } from '../../organisms/TodoLlist';
+import { BaseLayout } from '../../organisms/BaseLayout';
+import { TodoList } from '../../organisms/TodoList';
 
 export const TodoTemplate = () => {
   const {
-    addInputValue,
-    handleAddTodo,
     handleChangeSearchKeyword,
     handleDeleteTodo,
-    onChangeAddInputValue,
     searchKeyword,
     showTodoList,
   } = useTodosContext();
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Todo List</h1>
-
-      <section className={styles.common}>
-        <AddTodo
-          addInputValue={addInputValue}
-          onChangeTodo={onChangeAddInputValue}
-          handleAddTodo={handleAddTodo}
-        />
-      </section>
-
-      <section className={styles.common}>
-        <InputForm
-          inputValue={searchKeyword}
-          placeholder={'Search Keyword'}
-          handleChangeValue={handleChangeSearchKeyword}
-        />
-      </section>
-      <section className={styles.common}>
-        {showTodoList.length > 0 && (
-          <TodoList
-            todoList={showTodoList}
-            handleDeleteTodo={handleDeleteTodo}
+    <BaseLayout title={'TodoList'}>
+      <div className={styles.container}>
+        <div className={styles.area}>
+          <InputForm
+            value={searchKeyword}
+            placeholder={'Search Keyword'}
+            onChange={handleChangeSearchKeyword}
           />
-        )}
-      </section>
-    </div>
+        </div>
+        <div className={styles.area}>
+          {showTodoList.length > 0 && (
+            <TodoList
+              todoList={showTodoList}
+              handleDeleteTodo={handleDeleteTodo}
+            />
+          )}
+        </div>
+      </div>
+    </BaseLayout>
   );
 };
