@@ -1,17 +1,15 @@
-import React from 'react';
 import styles from './styles.module.css';
+import { useTodoTemplate } from './useTodoTemplate';
 import { useTodosContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { BaseLayout } from '../../organisms/BaseLayout';
 import { TodoList } from '../../organisms/TodoList';
 
 export const TodoTemplate = () => {
-  const {
-    handleChangeSearchKeyword,
-    handleDeleteTodo,
-    searchKeyword,
-    showTodoList,
-  } = useTodosContext();
+  const { originTodoList, handleDeleteTodo } = useTodosContext();
+
+  const [{ searchKeyword, showTodoList }, { handleChangeSearchKeyword }] =
+    useTodoTemplate({ originTodoList });
 
   return (
     <BaseLayout title={'TodoList'}>
