@@ -4,12 +4,18 @@ import {
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import { FC } from 'react';
 import styles from './styles.module.css';
 import { useTodoList } from './useTodoList';
+import { TodoType } from '../../../interfaces/Todo';
 
-export const TodoList = ({ todoList, handleDeleteTodo }) => {
-  const { handleMoveDetailPage, handleMoveEditPage } = useTodoList();
+type Props = {
+  todoList: Array<TodoType>;
+  handleDeleteTodo: (targetId: number, targetTitle: string) => void;
+};
+
+export const TodoList: FC<Props> = ({ todoList, handleDeleteTodo }) => {
+  const [{ handleMoveDetailPage, handleMoveEditPage }] = useTodoList();
 
   return (
     <ul className={styles.list}>
