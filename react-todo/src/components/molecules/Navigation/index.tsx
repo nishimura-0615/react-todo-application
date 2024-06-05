@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import styles from './styles.module.css';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
 import { NavigationLink } from '../../atoms/NavigationLink';
 
-export const Navigation = () => (
+export const Navigation: FC = () => (
   <nav>
     <ul className={styles.ul}>
       <NavigationLink title={'Top'} linkPath={NAVIGATION_PATH.TOP} />
