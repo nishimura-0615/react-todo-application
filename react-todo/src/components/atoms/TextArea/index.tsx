@@ -1,7 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import styles from './styles.module.css';
 
-export const TextArea = ({ disabled, value, placeholder, onChange }) => (
+type Props = JSX.IntrinsicElements['textarea'];
+
+export const TextArea: FC<Props> = ({
+  disabled,
+  value,
+  placeholder,
+  onChange,
+}) => (
   <textarea
     disabled={disabled}
     className={styles.text}

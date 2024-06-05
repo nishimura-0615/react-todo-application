@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './styles.module.css';
 import { useTodoCreateTemplate } from './useTodoCreateTemplate';
 import { useTodosContext } from '../../../contexts/TodoContext';
@@ -9,13 +8,10 @@ import { BaseLayout } from '../../organisms/BaseLayout';
 
 export const TodoCreateTemplate = () => {
   const { addTodo } = useTodosContext();
-  const {
-    handleChangeContent,
-    handleChangeTitle,
-    handleCreateTodo,
-    inputContent,
-    inputTitle,
-  } = useTodoCreateTemplate({ addTodo });
+  const [
+    { inputContent, inputTitle },
+    { handleChangeContent, handleChangeTitle, handleCreateTodo },
+  ] = useTodoCreateTemplate({ addTodo });
 
   return (
     <BaseLayout title={'Create Todo'}>
