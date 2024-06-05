@@ -24,7 +24,7 @@ module.exports = {
     'object-property-newline': [
       'error',
       {
-        allowAllPropertiesOnSameLine: false,
+        allowAllPropertiesOnSameLine: true,
       },
     ],
     'react-refresh/only-export-components': [
