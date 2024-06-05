@@ -1,4 +1,6 @@
-export const INIT_TODO_LIST = [
+import { TodoType } from '../interfaces/Todo';
+
+export const INIT_TODO_LIST: Array<TodoType> = [
   {
     id: 1,
     title: 'Todo1',
