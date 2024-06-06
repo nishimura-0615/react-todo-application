@@ -1,7 +1,7 @@
+import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
 import { EventType } from '../../../interfaces/Event';
-import { useRouter } from 'next/navigation';
 
 type Param = {
   addTodo: (title: string, content: string) => void;
@@ -39,7 +39,7 @@ export const useTodoCreateTemplate = ({ addTodo }: Param) => {
       e.preventDefault();
       if (inputTitle !== '' && inputContent !== '') {
         addTodo(inputTitle, inputContent);
-        navigate(NAVIGATION_PATH.TOP);
+        navigate.push(NAVIGATION_PATH.TOP);
       }
     },
     [addTodo, inputTitle, inputContent, navigate],

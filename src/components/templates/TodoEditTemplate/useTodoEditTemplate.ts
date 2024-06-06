@@ -47,7 +47,7 @@ export const useTodoEditTemplate = ({ originTodoList, updateTodo }: Params) => {
       e.preventDefault();
       if (!!todo?.id && inputTitle !== '' && inputContent !== '') {
         updateTodo(todo.id, inputTitle, inputContent);
-        navigate(NAVIGATION_PATH.TOP);
+        navigate.push(NAVIGATION_PATH.TOP);
       }
     },
     [navigate, todo?.id, inputTitle, inputContent, updateTodo],

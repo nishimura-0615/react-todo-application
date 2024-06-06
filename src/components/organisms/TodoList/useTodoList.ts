@@ -1,6 +1,6 @@
+import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
-import { useRouter } from 'next/navigation';
 
 type ActionType = {
   handleMoveDetailPage: (id: number) => void;

@@ -1,15 +1,15 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import styles from './styles.module.css';
 import { useTodosContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
 import { BaseLayout } from '../../organisms/BaseLayout';
-import { useParams } from 'next/navigation';
 
 export const TodoDetailTemplate = () => {
   const { originTodoList } = useTodosContext();
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>() || { id: '' };
   const todo = originTodoList.find((todo) => String(todo.id) === id);
 
   return (
