@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
 import { EventType } from '../../../interfaces/Event';
+import { useRouter } from 'next/navigation';
 
 type Param = {
   addTodo: (title: string, content: string) => void;
@@ -19,7 +19,7 @@ type ActionsType = {
 };
 
 export const useTodoCreateTemplate = ({ addTodo }: Param) => {
-  const navigate = useNavigate();
+  const navigate = useRouter();
 
   const [inputTitle, setInputTitle] = useState('');
   const [inputContent, setInputContent] = useState('');

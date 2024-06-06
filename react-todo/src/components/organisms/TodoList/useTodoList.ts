@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
+import { useRouter } from 'next/navigation';
 
 type ActionType = {
   handleMoveDetailPage: (id: number) => void;
@@ -8,15 +8,15 @@ type ActionType = {
 };
 
 export const useTodoList = () => {
-  const navigate = useNavigate();
+  const navigate = useRouter();
 
   const handleMoveDetailPage = useCallback(
-    (id: number) => navigate(`${NAVIGATION_PATH.DETAIL}${id}`),
+    (id: number) => navigate.push(`${NAVIGATION_PATH.DETAIL}${id}`),
     [navigate],
   );
 
   const handleMoveEditPage = useCallback(
-    (id: number) => navigate(`${NAVIGATION_PATH.EDIT}${id}`),
+    (id: number) => navigate.push(`${NAVIGATION_PATH.EDIT}${id}`),
     [navigate],
   );
 

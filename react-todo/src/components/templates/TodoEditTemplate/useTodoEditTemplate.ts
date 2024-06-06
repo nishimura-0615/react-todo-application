@@ -1,5 +1,5 @@
+import { useParams, useRouter } from 'next/navigation';
 import { useMemo, useState, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { NAVIGATION_PATH } from '../../../constants/navigation';
 import { EventType } from '../../../interfaces/Event';
 import { TodoType } from '../../../interfaces/Todo';
@@ -22,8 +22,8 @@ type ActionsType = {
 };
 
 export const useTodoEditTemplate = ({ originTodoList, updateTodo }: Params) => {
-  const navigate = useNavigate();
-  const { id } = useParams();
+  const navigate = useRouter();
+  const { id } = useParams<{ id: string }>();
   const todo = useMemo(
     () => originTodoList.find((todo) => String(todo.id) === id),
     [id, originTodoList],

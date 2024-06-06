@@ -1,9 +1,11 @@
-import { createContext, FC, ReactNode, useContext } from 'react';
+'use client';
+
+import React, { createContext, FC, useContext } from 'react';
 import { useTodos } from '../hooks/useTodos';
 import { TodoType } from '../interfaces/Todo';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
 interface ContextInterface {

@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './styles.module.css';
 import { useTodoTemplate } from './useTodoTemplate';
 import { useTodosContext } from '../../../contexts/TodoContext';

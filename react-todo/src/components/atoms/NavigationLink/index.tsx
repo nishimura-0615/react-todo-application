@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
+import Link from 'next/link';
 
 type Props = {
   title: string;
@@ -9,6 +9,6 @@ type Props = {
 
 export const NavigationLink: FC<Props> = ({ title, linkPath }) => (
   <li className={styles.li}>
-    <Link to={linkPath}>{title}</Link>
+    <Link href={linkPath}>{title}</Link>
   </li>
 );

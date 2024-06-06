@@ -1,13 +1,15 @@
-import { useParams } from 'react-router-dom';
+'use client';
+
 import styles from './styles.module.css';
 import { useTodosContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
 import { BaseLayout } from '../../organisms/BaseLayout';
+import { useParams } from 'next/navigation';
 
 export const TodoDetailTemplate = () => {
   const { originTodoList } = useTodosContext();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const todo = originTodoList.find((todo) => String(todo.id) === id);
 
   return (
